@@ -1,0 +1,22 @@
+----------------------------
+> Bash script below will run read_binary_SPEC from MATLAB 
+----------------------------
+> inputs: read_binary_SPEC(inFilename,outFilename, TAS flight file)
+----------------------------
+
+#!/bin/bash 
+
+#SBATCH --job-name=RF1_binary
+#SBATCH -p node
+#SBATCH -n 1 
+#SBATCH --mem-per-cpu=8192
+#SBATCH --time=7:00:00
+#SBATCH --mail-type=FAIL
+#SBATCH --mail-type=END
+#SBATCH --mail-user=mvarcie2@illinois.edu
+
+module load matlab/0matlab-r2017a
+
+set InputDir=/data/keeling/a/mvarcie2/impacts/UIOPS
+
+matlab -nodisplay -nosplash -nodesktop -r "read_binary_SPEC('base200207134721.2DS', '2DS_20_0207_1347_21', 'RF01_flight.nc')" > matlab.log
