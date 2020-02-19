@@ -1,0 +1,27 @@
+### Access UND server 
+
+ssh varcie@aitken.atmos.und.edu -p22000
+
+enter password: (email) 
+
+### Go to IMPACTS data > data > 2DS_data
+
+  ### size of files 
+
+ls -lh 
+
+  ### location of files
+  
+pwd 
+
+### Secure copy files to local machine 
+
+scp -P 22000 varcie@aitken.atmos.und.edu:/home_local/varcie/impacts/20200118_174232/2DS_Data/* .
+
+scp -P 22000 varcie@aitken.atmos.und.edu:pwd/* .
+
+### Secure copy files to Keeling {from local machine}
+
+scp pwd/* . mvarcie2@keeling.earth.illinois.edu:/data/keeling/a/mvarcie2/impacts
+
+
